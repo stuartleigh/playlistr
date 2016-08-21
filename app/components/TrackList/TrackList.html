@@ -2,12 +2,17 @@
   <md-list-item ng-show="!ctrl.tracks.length">
     <p>No tracks selected for this playlist</p>
   </md-list-item>
-  <md-list-item class="secondary-button-padding Track" ng-repeat="item in ctrl.tracks">
-    <img ng-src="{{item.artworkUrl60}}" alt="{{item.collectionName}}" class="Track__Image" />
+  <md-list-item class="secondary-button-padding Track" ng-repeat="item in ctrl.tracks track by $index">
+    <img ng-src="{{ item.artworkUrl60 }}" alt="{{ item.collectionName }}" class="Track__Image" />
     <p><strong>{{ item.trackName }}</strong><br />{{ item.artistName }}</p>
-    <md-button class="md-icon-button" ng-click="ctrl.removeTrack($index)" aria-label="delete">
-        <md-icon md-svg-icon="../../assets/svg/ic_delete_black_24px.svg"></md-icon>
-      </md-button>
+    <div class="Track__Actions">
+      <div pl-cumulative-time index="{{ $index }}" class="Track__CumulativeTime"></div>
+      <div class="Track__Buttons">
+        <md-button class="md-icon-button" ng-click="ctrl.removeTrack($index)" aria-label="delete">
+          <md-icon md-svg-icon="../../assets/svg/ic_delete_black_24px.svg"></md-icon>
+        </md-button>
+      </div>
+    </div>
     <md-divider ng-if="!$last"></md-divider>
   </md-list-item>
 </md-list>

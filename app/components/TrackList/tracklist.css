@@ -8,3 +8,15 @@
   border-radius: 2px;
   margin-right: 1em;
 }
+
+.Track__Actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;  
+}
+
+.Track__CumulativeTime {
+  margin: 0 18px;
+  font-size: 0.7em;
+  color: #bbb;
+}
