@@ -1,9 +1,9 @@
-<md-list ng-controller="TrackListController as ctrl" ng-cloak>
+<md-list ng-controller="TrackListController as ctrl" ng-cloak class="Tracklist">
   <md-list-item ng-show="!ctrl.tracks.length">
     <p>No tracks selected for this playlist</p>
   </md-list-item>
-  <md-list-item class="secondary-button-padding" ng-repeat="item in ctrl.tracks">
-    <img ng-src="{{item.artworkUrl60}}" class="md-avatar" alt="{{item.collectionName}}" />
+  <md-list-item class="secondary-button-padding Track" ng-repeat="item in ctrl.tracks">
+    <img ng-src="{{item.artworkUrl60}}" alt="{{item.collectionName}}" class="Track__Image" />
     <p><strong>{{ item.trackName }}</strong><br />{{ item.artistName }}</p>
     <md-button class="md-icon-button" ng-click="ctrl.removeTrack($index)" aria-label="delete">
         <md-icon md-svg-icon="../../assets/svg/ic_delete_black_24px.svg"></md-icon>

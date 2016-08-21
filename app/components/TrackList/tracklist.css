@@ -1,0 +1,10 @@
+.Track {
+  padding: 0.5em 0;
+}
+
+.Track__Image {
+  width: 50px;
+  height: 50px;
+  border-radius: 2px;
+  margin-right: 1em;
+}

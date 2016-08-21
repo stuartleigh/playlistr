@@ -3,19 +3,22 @@
 
   angular
     .module('Playlistr.TrackService', [])
-    .factory('trackService', ['$rootScope', '$http', function TrackService ($rootScope, $http) {
+    .factory('trackService', ['$http', function TrackService ($http) {
+      const LS_TRACK_KEY = 'playlistr.tracks'
 
-      this.tracks = $rootScope.tracks
+      this.tracks = JSON.parse(localStorage.getItem(LS_TRACK_KEY)) || []
 
       return {
-        tracks: $rootScope.tracks,
+        tracks: this.tracks,
 
         addTrack: track => {
-          $rootScope.tracks.push(track)
+          this.tracks.push(track)
+          localStorage.setItem(LS_TRACK_KEY, JSON.stringify(this.tracks))
         },
 
         removeTrack: index => {
-          $rootScope.tracks.splice(index, 1)
+          this.tracks.splice(index, 1)
+          localStorage.setItem(LS_TRACK_KEY, JSON.stringify(this.tracks))
         },
 
         search: term => {

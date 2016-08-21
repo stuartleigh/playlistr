@@ -7,9 +7,4 @@
       'Playlistr.Search',
       'Playlistr.TrackList',
     ])
-    .run(function($rootScope) {
-      $rootScope.tracks = [];
-    })
 })()
-
-

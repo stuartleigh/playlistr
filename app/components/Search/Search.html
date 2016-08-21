@@ -9,7 +9,8 @@
           md-selected-item-change="ctrl.selectItem(item)"
           md-items="item in ctrl.search(ctrl.searchText)"
           md-item-text="item.trackName"
-          md-min-length="0"
+          md-min-length="2"
+          md-delay="500"
           md-floating-label="Find a track"
           md-menu-class="autocomplete-custom-template">
         <md-item-template>
