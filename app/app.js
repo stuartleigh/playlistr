@@ -3,6 +3,7 @@
   angular
     .module('Playlistr', [
       'ngMaterial',
+      'Playlistr.TrackService',
       'Playlistr.Search',
       'Playlistr.TrackList',
     ])
