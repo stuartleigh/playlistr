@@ -1,0 +1,31 @@
+<div ng-controller="SearchController as ctrl" layout="column" ng-cloak>
+  <md-content layout-padding layout="column">
+    <form ng-submit="$event.preventDefault()">
+      <md-autocomplete
+          ng-disabled="ctrl.isDisabled"
+          md-no-cache="ctrl.noCache"
+          md-selected-item="ctrl.selectedItem"
+          md-search-text="ctrl.searchText"
+          md-selected-item-change="ctrl.selectItem(item)"
+          md-items="item in ctrl.search(ctrl.searchText)"
+          md-item-text="item.trackName"
+          md-min-length="0"
+          md-floating-label="Find a track"
+          md-menu-class="autocomplete-custom-template">
+        <md-item-template>
+          <span class="item-title">
+            <span> {{item.trackName}} </span>
+          </span>
+          <span class="item-metadata">
+            <span class="item-metastat">
+              Artist: <strong>{{item.artistName}}</strong>
+            </span>
+            <span class="item-metastat">
+              Album: <strong>{{item.collectionCensoredName}}</strong>
+            </span>
+          </span>
+        </md-item-template>
+      </md-autocomplete>
+    </form>
+  </md-content>
+</div>
